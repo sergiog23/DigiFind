@@ -1,9 +1,12 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-
 const app = express()
 
+
 var urlencodedParser = bodyParser.urlencoded({extended:false})
+app.get('/', function (req, res) {
+  res.render('index', {});
+});
 
 app.get('/submit-form',function(req,res){
   res.render('submit-form',{qs:req.query});
