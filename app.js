@@ -8,6 +8,12 @@ var urlencodedParser = bodyParser.urlencoded({extended:false})
 app.get('/name',function(req,res){
   res.render('name',{qs:req.query});
 });
+
+app.post('/name',urlencodedParser,function(req,res){
+  console.log(req.body);
+  res.render('name',{qs:req.query});
+});
+
 app.listen(3000, function() {
   console.log('server is running on port 3000')
 })
