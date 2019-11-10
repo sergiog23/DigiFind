@@ -8,6 +8,12 @@ h1 {
   font-size: 3.5em;
 }
 
+h2 {
+  font-family: 'Pangram';
+  font-weight: 900;
+  font-size: 2.5em;
+}
+
 hr {
   border-top: 5px solid rgb(0, 0, 0);
 }
@@ -18,4 +24,17 @@ hr {
 
 .thicc {
   font-weight: bold;
+}
+
+.sidebar {
+  height: 100%;
+  width: 350px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #c4c4c4;
+  overflow-x: hidden;
+  padding-top: 30px;
+  padding-left: 20px;
 }
