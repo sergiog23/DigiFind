@@ -4,8 +4,9 @@ const app = express()
 
 
 var urlencodedParser = bodyParser.urlencoded({extended:false})
+
 app.get('/', function (req, res) {
-  res.render('index', {});
+  res.render('index');
 });
 
 app.get('/submit-form',function(req,res){
