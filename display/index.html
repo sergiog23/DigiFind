@@ -10,27 +10,25 @@
 
   <link href="https://fonts.googleapis.com/css?family=Fira+Mono:700|Red+Hat+Text&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="/style.css">
 
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-  </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-  </script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-  </script>
-  <script src="/node_modules/masonry-layout/dist/masonry.pkgd.min.js"></script>
+  <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="/node_modules/popper.js/dist/popper.min.js"></script>
+  <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="/node_modules/weather.js/dist/weather.min.js"></script>
   <script src="/index.js"></script>
 </head>
 
-<body>
+<body onload="startTime()">
   <div class="sidebar">
     <h2>Found Something?</h2>
     <p>Connect to the <span class="mono">LostAndFound</span> WiFi network and follow the instuctions.</p>
+    <div class="bottom">
+      <p class="location">UT Dallas Engineering and Computer Science Building</p>
+      <p class="time"></p>
+      <p id="current"></p>
+    </div>
   </div>
   <div class="main">
     <div class="container-full">
@@ -83,6 +81,38 @@
       </div>
     </div>
   </div>
+  <script>
+    const timeElement = document.getElementsByClassName('time')[0]
+
+    function startTime() {
+      var today = new Date();
+
+      var h = today.getHours();
+      var m = today.getMinutes();
+      var s = today.getSeconds();
+
+      m = checkTime(m);
+      s = checkTime(s);
+
+      timeElement.innerHTML =
+        h + ":" + m + ":" + s;
+      var t = setTimeout(startTime, 500);
+    }
+
+    function checkTime(i) {
+      if (i < 10) {
+        i = "0" + i
+      }; // add zero in front of numbers < 10
+      return i;
+    }
+
+    Weather.getCurrent("Guntersville", function (current) {
+      $("#current").html("Temperature: " + current.temperature() + "&deg;K or " +
+        Weather.kelvinToFahrenheit(current.temperature()) + "&deg;F or " +
+        Weather.kelvinToCelsius(current.temperature()) + "&deg;C" +
+        "<br />Current Conditions: " + current.conditions());
+    });
+  </script>
 </body>
 
 </html>
