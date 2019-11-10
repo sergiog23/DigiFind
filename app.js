@@ -5,13 +5,13 @@ const app = express()
 
 var urlencodedParser = bodyParser.urlencoded({extended:false})
 
-app.get('/name',function(req,res){
-  res.render('name',{qs:req.query});
+app.get('/submit-form',function(req,res){
+  res.render('submit-form',{qs:req.query});
 });
 
-app.post('/name',urlencodedParser,function(req,res){
+app.post('/submit-form',urlencodedParser,function(req,res){
   console.log(req.body);
-  res.render('name',{qs:req.query});
+  res.render('submit-form',{qs:req.query});
 });
 
 app.listen(3000, function() {
