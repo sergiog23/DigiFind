@@ -48,3 +48,12 @@ hr {
   padding-top: 30px;
   padding-left: 20px;
 }
+
+.main {
+  padding: 30px;
+}
+
+.grid {
+  width: 1000px;
+  height: 1000px;
+}
