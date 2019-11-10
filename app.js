@@ -5,7 +5,7 @@ const app = express()
 
 var urlencodedParser = bodyParser.urlencoded({extended:false})
 
-app.get('/', function (req, res) {
+app.get('/', function(req, res) {
   res.render('index');
 });
 
