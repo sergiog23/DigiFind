@@ -1,0 +1,22 @@
+{
+  "name": "lost-and-found-bulletin",
+  "version": "1.0.0",
+  "description": "HackUTD Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sergiog23/lost-and-found-bulletin.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sergiog23/lost-and-found-bulletin/issues"
+  },
+  "homepage": "https://github.com/sergiog23/lost-and-found-bulletin#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
