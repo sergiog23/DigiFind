@@ -23,8 +23,13 @@ app.get('/submit-form',function(req,res){
 
 app.post('/submit-form',urlencodedParser,function(req,res){
   console.log('Received submit POST request');
-  console.log(req.body);
-  res.render('submit-form.html',{data: req.body});
+  console.log(JSON.stringify(req.body, null, 2));
+  res.render('submit-form.html',{data: {
+    ...req.body,
+    item: 'something',
+    name: 'test',
+    number: '',
+  }});
 });
 
 app.listen(3000, function() {

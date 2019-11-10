@@ -10,109 +10,31 @@
 
   <link href="https://fonts.googleapis.com/css?family=Fira+Mono:700|Red+Hat+Text&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
 
-  <script src="/node_modules/jquery/dist/jquery.min.js"></script>
-  <script src="/node_modules/popper.js/dist/popper.min.js"></script>
-  <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="/node_modules/weather.js/dist/weather.min.js"></script>
-  <script src="/index.js"></script>
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/popper.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="index.js"></script>
 </head>
 
-<body onload="startTime()">
-  <div class="sidebar">
-    <h2>Found Something?</h2>
-    <p>Connect to the <span class="mono">LostAndFound</span> WiFi network and follow the instuctions.</p>
-    <div class="bottom">
-      <p class="location">UT Dallas Engineering and Computer Science Building</p>
-      <p class="time"></p>
-      <p id="current"></p>
-    </div>
-  </div>
-  <div class="main">
-    <div class="container-full">
-      <h1>Lost Items</h1>
-      <div class="grid">
-        <div class="grid-item">
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-        <div class="grid-item">
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-        <div class="grid-item">
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-        <div class="grid-item">
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
+<body>
+  <div class="container">
+    <div class="col-12">
+      <h1 class="pt-3">Thank you for submitting this item!</h1>
+      <hr />
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="<%- data.image %>" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title"><%- data.name %></h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
       </div>
     </div>
   </div>
-  <script>
-    const timeElement = document.getElementsByClassName('time')[0]
-
-    function startTime() {
-      var today = new Date();
-
-      var h = today.getHours();
-      var m = today.getMinutes();
-      var s = today.getSeconds();
-
-      m = checkTime(m);
-      s = checkTime(s);
-
-      timeElement.innerHTML =
-        h + ":" + m + ":" + s;
-      var t = setTimeout(startTime, 500);
-    }
-
-    function checkTime(i) {
-      if (i < 10) {
-        i = "0" + i
-      }; // add zero in front of numbers < 10
-      return i;
-    }
-
-    Weather.getCurrent("Guntersville", function (current) {
-      $("#current").html("Temperature: " + current.temperature() + "&deg;K or " +
-        Weather.kelvinToFahrenheit(current.temperature()) + "&deg;F or " +
-        Weather.kelvinToCelsius(current.temperature()) + "&deg;C" +
-        "<br />Current Conditions: " + current.conditions());
-    });
-  </script>
 </body>
 
 </html>
