@@ -27,10 +27,13 @@
   <script src="/index.js"></script>
 </head>
 
-<body>
+<body onload="startTime()">
   <div class="sidebar">
     <h2>Found Something?</h2>
     <p>Connect to the <span class="mono">LostAndFound</span> WiFi network and follow the instuctions.</p>
+    <div class="bottom">
+      <p class="time"></p>
+    </div>
   </div>
   <div class="main">
     <div class="container-full">
@@ -83,6 +86,31 @@
       </div>
     </div>
   </div>
+  <script>
+    const timeElement = document.getElementsByClassName('time')[0]
+
+    function startTime() {
+      var today = new Date();
+
+      var h = today.getHours();
+      var m = today.getMinutes();
+      var s = today.getSeconds();
+
+      m = checkTime(m);
+      s = checkTime(s);
+
+      timeElement.innerHTML =
+        h + ":" + m + ":" + s;
+      var t = setTimeout(startTime, 500);
+    }
+
+    function checkTime(i) {
+      if (i < 10) {
+        i = "0" + i
+      }; // add zero in front of numbers < 10
+      return i;
+    }
+  </script>
 </body>
 
 </html>
