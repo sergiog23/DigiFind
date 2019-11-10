@@ -20,6 +20,30 @@
     <div class="col-12">
       <h1 class="pt-3">Report a Found Item</h1>
       <hr />
+
+      <form method="POST" action="/submit-form">
+        <div class="form-group">
+          <label for="item">Item Name</label>
+          <input class="form-control" id="item" placeholder="Brown leather wallet">
+        </div>
+        <div class="col-12">
+          <button class="btn btn-light">I still <span class="thicc">have the item</span> with me.</button>
+          <button class="btn btn-light">I <span class="thicc">left the item</span> somewhere safe.</button>
+        </div>
+
+        <div class="form-group pt-3">
+          <label for="name">Contact Name</label>
+          <input class="form-control" id="name" placeholder="Naveen Jindal">
+        </div>
+        <div class="form-group pt-3">
+          <label for="number">Phone Number</label>
+          <input class="form-control" id="number" placeholder="(312) 615-8338">
+        </div>
+        <div class="form-group pt-3">
+          <input class="btn btn-light" type="file" id="profile_pic" name="profile_pic" accept="image/*">
+        </div>
+        <button type="submit" class="btn btn-light">Submit</button>
+      </form>
     </div>
   </div>
 </body>
