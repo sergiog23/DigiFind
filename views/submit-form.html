@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Lost Items</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Fira+Mono:700|Red+Hat+Text&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/popper.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="index.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="col-12">
+      <h1 class="pt-3">Thank you for submitting this item!</h1>
+      <hr />
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="<%- data.image %>" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title"><%= data.item %></h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+          <a href="/views/display.html" class="btn btn-primary">View all lost items</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src=""></script>
+</body>
+
+</html>

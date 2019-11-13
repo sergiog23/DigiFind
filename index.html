@@ -6,20 +6,79 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  <title>Report a Lost Item</title>
+  <title>Report a Found Item</title>
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Fira+Mono:700|Red+Hat+Text:400,700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/popper.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="index.js"></script>
 </head>
 
 <body>
   <div class="container">
     <div class="col-12">
       <h1 class="pt-3">Report a Found Item</h1>
-      <hr/>
+      <hr />
+
+      <form method="POST" action="/submit-form" enctpye="multipart/form-data">
+        <div class="form-group">
+          <label for="item">Item Name</label>
+          <input type="text" class="form-control" id="item" name="item" placeholder="Brown leather wallet">
+        </div>
+        <div class="col-12">
+          <button type="button" class="btn btn-light have-selector" onclick="">I still <span class="thicc">have the
+              item</span> with me.</button>
+          <button type="button" class="btn btn-light left-selector">I <span class="thicc">left the item</span> somewhere
+            safe.</button>
+        </div>
+
+        <div class="have-container">
+          <div class="form-group pt-3">
+            <label for="name">Contact Name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Naveen Jindal">
+          </div>
+          <div class="form-group pt-3">
+            <label for="number">Phone Number</label>
+            <input type="text" class="form-control" id="number" name="number" placeholder="(312) 615-8338">
+          </div>
+        </div>
+
+        <div class="left-container">
+          <div class="form-group">
+            <label for="textarea">Where did you leave the item?</label>
+            <textarea class="form-control" id="textarea" rows="3"></textarea>
+          </div>
+        </div>
+
+        <div class="form-group pt-3">
+          <input class="btn btn-light" type="file" id="itemImage" name="itemImage" accept="image/*">
+        </div>
+        <button type="submit" class="btn btn-light mb-5">Submit</button>
+      </form>
     </div>
   </div>
+
+  <script>
+    $('.have-selector').click(function () {
+      $('left-container').hide();
+      $('.have-container').show();
+      $('.have-selector').addClass('btn-held');
+      $('.left-selector').removeClass('btn-held');
+    });
+
+    $('.left-selector').click(function () {
+      $('have-container').hide();
+      $('.left-container').show();
+      $('.left-selector').addClass('btn-held');
+      $('.have-selector').removeClass('btn-held');
+    });
+  </script>
+
 </body>
 
 </html>

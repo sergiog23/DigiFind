@@ -17,6 +17,16 @@
   },
   "homepage": "https://github.com/sergiog23/lost-and-found-bulletin#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "body-parser": "^1.19.0",
+    "bootstrap": "^4.3.1",
+    "ejs": "^2.7.1",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.1.6-alpha.6",
+    "express-validator": "^6.2.0",
+    "jquery": "^3.4.1",
+    "masonry-layout": "^4.2.2",
+    "nodemon": "^1.19.4",
+    "popper.js": "^1.16.0",
+    "weather.js": "^0.1.0"
   }
 }
